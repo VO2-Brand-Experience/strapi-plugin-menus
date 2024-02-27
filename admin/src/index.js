@@ -1,6 +1,7 @@
 import { prefixPluginTranslations } from '@strapi/helper-plugin';
 
 import { Initializer, PluginIcon } from './components';
+import pluginPermissions from './permissions';
 import reducers from './reducers';
 import { getTrad, pluginId, pluginName } from './utils';
 
@@ -20,13 +21,14 @@ export default {
 
         return component;
       },
-      permissions: [
+      permissions: pluginPermissions.access,
+      /* permissions: [
         // Uncomment to set the permissions of the plugin here
         // {
         //   action: '', // the action name should be plugin::plugin-name.actionType
         //   subject: null,
         // },
-      ],
+      ], */
     });
 
     app.registerPlugin({
